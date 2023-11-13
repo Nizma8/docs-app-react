@@ -7,3 +7,61 @@
     padding: 10px;
     font-family: 'Poppins', sans-serif;
 }
+.container {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#e0e3e7;
+  
+}
+
+.container .ql-editor {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 1in;
+    margin: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    background-color: white;
+    border: none;
+  
+}
+.container .ql-container {
+    display: flex;
+    justify-content: center;
+margin-top: 50px;
+border:none;
+}
+.container .ql-toolbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+
+  }
+  @media only screen and (max-width: 600px) {
+    .container{
+        padding: 1rem;
+    }
+    .container .ql-editor {
+        width: 98vw;
+        min-height: 11in;
+        padding:1rem;
+        margin: 1rem;
+        box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+        background-color: white;
+    }
+    .container .ql-toolbar.ql-snow {
+        border-radius: 0;
+        justify-content: start;
+
+     }
+
+  }
