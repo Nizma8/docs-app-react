@@ -17,6 +17,16 @@
     background-color:#e0e3e7;
   
 }
+.all{
+    font-family: 'Kay Pho Du', sans-serif;
+
+}
+.glass-container {
+    background: rgba(255, 255, 255, 0.2); /* Adjust the opacity as needed */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
 .container .ql-editor {
     width: 8.5in;

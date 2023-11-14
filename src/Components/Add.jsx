@@ -9,11 +9,14 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { addDoc, collection, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import { useNavigate, useParams } from 'react-router-dom';
+import { auth } from '../configure/firebase';
+import { signOut } from 'firebase/auth';
 
 
 function Add({database}) {
     const [open, setOpen] = React.useState(false);
     const[title,setTitle]=useState("")
+
     const [displayTitle,setDisplayTitle]=useState([])
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -64,7 +67,16 @@ const addId =(id)=>{
           }));
         })
     }
-console.log(displayTitle);
+    const logout = async()=>{
+try {
+  await signOut(auth)
+  navigate('/')
+
+  
+} catch (error) {
+     console.error(err);
+}
+    }
    useEffect(() => {
     if(isMounted.current){
         return 
@@ -72,13 +84,17 @@ console.log(displayTitle);
     isMounted.current = true;
     getData()
 }, [])
+
+
+
   return (
    
     <>
     <div className='w-screen h-screen flex-col '>
         
-    <div className='flex justify-center items-center'>
-        <button className=" px-5 py-4 shadow rounded-lg mt-5 hover:bg-blue-200" onClick={handleOpen}> <i className='fa-solid fa-plus'></i>Add Button</button>
+    <div className='flex justify-between items-center mx-10'>
+        <button className=" px-5 py-4 shadow rounded-lg mt-5 hover:bg-blue-200" onClick={handleOpen}> <i className='fa-solid fa-plus'></i>Add </button>
+        <button className='shadow rounded-lg p-2 hover:bg-blue-200' onClick={logout}>Logout</button>
     </div>
 
     <div className="grid gap-5  lg:grid-cols-4  lg:gap-3  md:grid-cols-3 md:gap-4 md:ms-5 md:mt-5 lg:mt-5 lg:ms-5 mx-5 my-3">
@@ -107,6 +123,8 @@ displayTitle?.map(title=>{
 
     
     </div>
+
+
 
     <Modal
         open={open}
